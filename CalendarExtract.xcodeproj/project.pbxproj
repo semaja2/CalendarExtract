@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		9E5A398E1CA7B3E700985547 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A398D1CA7B3E700985547 /* main.swift */; };
-		9E5A39951CA7B40B00985547 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5A39941CA7B40B00985547 /* EventKit.framework */; };
 		9E5A39981CA7D3A100985547 /* CommandLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A39971CA7D3A100985547 /* CommandLine.swift */; };
 		9E5A399A1CA7D3BC00985547 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A39991CA7D3BC00985547 /* Option.swift */; };
 		9E5A399C1CA7D3D200985547 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A399B1CA7D3D200985547 /* StringExtensions.swift */; };
+		9E8A253E1CA7EAC300A4BC4D /* JsonSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8A253D1CA7EAC300A4BC4D /* JsonSerializer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,10 +29,10 @@
 /* Begin PBXFileReference section */
 		9E5A398A1CA7B3E700985547 /* CalendarExtract */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CalendarExtract; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E5A398D1CA7B3E700985547 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		9E5A39941CA7B40B00985547 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		9E5A39971CA7D3A100985547 /* CommandLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommandLine.swift; path = CalendarExtract/CommandLine.swift; sourceTree = "<group>"; };
 		9E5A39991CA7D3BC00985547 /* Option.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Option.swift; path = CalendarExtract/Option.swift; sourceTree = "<group>"; };
 		9E5A399B1CA7D3D200985547 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtensions.swift; path = CalendarExtract/StringExtensions.swift; sourceTree = "<group>"; };
+		9E8A253D1CA7EAC300A4BC4D /* JsonSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JsonSerializer.swift; path = CalendarExtract/JsonSerializer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +40,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E5A39951CA7B40B00985547 /* EventKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,10 +49,7 @@
 		9E5A39811CA7B3E700985547 = {
 			isa = PBXGroup;
 			children = (
-				9E5A39971CA7D3A100985547 /* CommandLine.swift */,
-				9E5A39991CA7D3BC00985547 /* Option.swift */,
-				9E5A399B1CA7D3D200985547 /* StringExtensions.swift */,
-				9E5A39941CA7B40B00985547 /* EventKit.framework */,
+				9E8A25411CA8196600A4BC4D /* Frameworks */,
 				9E5A398C1CA7B3E700985547 /* CalendarExtract */,
 				9E5A398B1CA7B3E700985547 /* Products */,
 			);
@@ -73,6 +69,25 @@
 				9E5A398D1CA7B3E700985547 /* main.swift */,
 			);
 			path = CalendarExtract;
+			sourceTree = "<group>";
+		};
+		9E8A25411CA8196600A4BC4D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9E8A25421CA8197300A4BC4D /* CommandLine */,
+				9E8A253D1CA7EAC300A4BC4D /* JsonSerializer.swift */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9E8A25421CA8197300A4BC4D /* CommandLine */ = {
+			isa = PBXGroup;
+			children = (
+				9E5A39971CA7D3A100985547 /* CommandLine.swift */,
+				9E5A39991CA7D3BC00985547 /* Option.swift */,
+				9E5A399B1CA7D3D200985547 /* StringExtensions.swift */,
+			);
+			name = CommandLine;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E8A253E1CA7EAC300A4BC4D /* JsonSerializer.swift in Sources */,
 				9E5A399C1CA7D3D200985547 /* StringExtensions.swift in Sources */,
 				9E5A398E1CA7B3E700985547 /* main.swift in Sources */,
 				9E5A399A1CA7D3BC00985547 /* Option.swift in Sources */,
@@ -257,6 +273,7 @@
 				9E5A39931CA7B3E700985547 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

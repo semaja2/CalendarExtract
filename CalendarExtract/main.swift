@@ -44,8 +44,10 @@ if (fileTypeOption.wasSet) {
             fileType = "ics"
         case "text":
             fileType = "text"
+        case "json":
+            fileType = "json"
         default:
-            fileType = "text"
+            fileType = "json"
     }
 }
 if (calendersToSearchOption.wasSet && calendersToSearchOption.value! != "") {
@@ -53,6 +55,13 @@ if (calendersToSearchOption.wasSet && calendersToSearchOption.value! != "") {
 }
 
 
+class EventObject {
+    var eventid: String = ""
+    var allDay: Bool = false
+    var startDate: String?
+    var endDate: String?
+    var title: String?
+}
 
 extension NSDate {
     
@@ -79,15 +88,10 @@ func checkCalendarAuthorizationStatus() {
         print("Requesting authorization to calendars")
         requestAccessToCalendar()
     case EKAuthorizationStatus.Authorized:
-        // Things are in line with being able to show the calendars in the table view
         loadCalendars()
-        //refreshTableView()
     case EKAuthorizationStatus.Restricted, EKAuthorizationStatus.Denied:
-        print("Access has been restriced, please authorise this application to continue")
         print("Access has been restricted, please authorize this application to continue")
         exit(1);
-        // We need to help them give us permission
-        //needPermissionView.fadeIn()
     }
 }
 
@@ -100,9 +104,8 @@ func requestAccessToCalendar() {
                 loadCalendars()
             })
         } else {
-            dispatch_async(dispatch_get_main_queue(), {
-                //self.needPermissionView.fadeIn()
-            })
+            print("Access has been denied, please authorise this application to continue")
+            exit(1);
         }
     })
 }
@@ -141,7 +144,7 @@ func loadCalendars() {
     case "json":
         outputString = exportToJSONFormat(arrayOfEvents)
     default:
-        outputString = exportToTextFormat(arrayOfEvents)
+        outputString = exportToJSONFormat(arrayOfEvents)
     }
     
     if (filePath.value != nil) {
@@ -155,6 +158,26 @@ func loadCalendars() {
     } else {
         print(outputString)
     }
+}
+
+func exportToJSONFormat(eventsToExport: NSArray) -> String {
+    var jsonEvents: [EventObject] = []
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+    dateFormatter.timeZone = NSTimeZone.localTimeZone()
+    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+    for e in eventsToExport {
+        let event = EventObject()
+        event.eventid = e.eventIdentifier
+        event.allDay = e.allDay
+        event.startDate = dateFormatter.stringFromDate(e.startDate)
+        event.endDate = dateFormatter.stringFromDate(e.endDate)
+        event.title = e.title.stringByReplacingOccurrencesOfString("'", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        jsonEvents.append(event)
+    }
+    
+    let jsonString = JSONSerializer.toJson(jsonEvents)
+    return jsonString
 }
 
 func exportToTextFormat(eventsToExport: NSArray) -> String {
