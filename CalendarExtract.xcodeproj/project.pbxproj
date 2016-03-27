@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		9E5A398E1CA7B3E700985547 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A398D1CA7B3E700985547 /* main.swift */; };
+		9E5A39951CA7B40B00985547 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5A39941CA7B40B00985547 /* EventKit.framework */; };
+		9E5A39981CA7D3A100985547 /* CommandLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A39971CA7D3A100985547 /* CommandLine.swift */; };
+		9E5A399A1CA7D3BC00985547 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A39991CA7D3BC00985547 /* Option.swift */; };
+		9E5A399C1CA7D3D200985547 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A399B1CA7D3D200985547 /* StringExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,10 @@
 /* Begin PBXFileReference section */
 		9E5A398A1CA7B3E700985547 /* CalendarExtract */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CalendarExtract; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E5A398D1CA7B3E700985547 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		9E5A39941CA7B40B00985547 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		9E5A39971CA7D3A100985547 /* CommandLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommandLine.swift; path = CalendarExtract/CommandLine.swift; sourceTree = "<group>"; };
+		9E5A39991CA7D3BC00985547 /* Option.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Option.swift; path = CalendarExtract/Option.swift; sourceTree = "<group>"; };
+		9E5A399B1CA7D3D200985547 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtensions.swift; path = CalendarExtract/StringExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E5A39951CA7B40B00985547 /* EventKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +50,10 @@
 		9E5A39811CA7B3E700985547 = {
 			isa = PBXGroup;
 			children = (
+				9E5A39971CA7D3A100985547 /* CommandLine.swift */,
+				9E5A39991CA7D3BC00985547 /* Option.swift */,
+				9E5A399B1CA7D3D200985547 /* StringExtensions.swift */,
+				9E5A39941CA7B40B00985547 /* EventKit.framework */,
 				9E5A398C1CA7B3E700985547 /* CalendarExtract */,
 				9E5A398B1CA7B3E700985547 /* Products */,
 			);
@@ -119,7 +132,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E5A399C1CA7D3D200985547 /* StringExtensions.swift in Sources */,
 				9E5A398E1CA7B3E700985547 /* main.swift in Sources */,
+				9E5A399A1CA7D3BC00985547 /* Option.swift in Sources */,
+				9E5A39981CA7D3A100985547 /* CommandLine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
